@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Zap</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body>
+<video autoplay muted loop id="myVideo">
+    <source src="pictures/Sun.mp4" type="video/mp4">
+</video>
+<div id="grey"></div>
+<div class="window" id="window">
+    <a href="/" class="link-close">
+        <img src="pictures/close.png" alt="">
+    </a>
+    <div class="form">
+        <h2>Войти</h2>
+        <form action="/login" method="post" class="log-form" onsubmit="return valid(this)">
+            <input type="text" placeholder="Имя" name="username" id="username" class="input">
+            <input type="password" placeholder="Пароль" name="password" id="password" class="input password">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+            <input type="submit" value="Войти" class="log-button">
+        </form>
+        <a href ="/registration">Зарегистрироваться</a>
+    </div>
+    {{#msg}}
+        <div class="alert">
+            {{msg}}
+        </div>
+    {{/msg}}
+</div>
+<script src="js/login.js"></script>
+</body>
+</html>

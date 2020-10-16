@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Zap</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body>
+<video autoplay muted loop id="myVideo">
+    <source src="pictures/Sun.mp4" type="video/mp4">
+</video>
+<div id="grey"></div>
+<div class="form-back">
+    <div class="window" id="window">
+        <a href="/" class="link-close">
+            <img src="pictures/close.png" alt="">
+        </a>
+        <div class="form">
+            <h2>Регистрация</h2>
+            <form action="/registration" method="post" id="form" onsubmit="return valid(this)">
+                <input type="text" placeholder="Имя" name="username" id="username" class="input">
+                <input type="text" placeholder="Email" name="email" id="email" class="input">
+                <input type="password" placeholder="Пароль" name="password" id="password" class="input">
+                <input type="password" placeholder="Повторите пароль" name="password2" id="password2" class="input password">
+                <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+                <div><input type="submit" value="Зарегистрироваться" class="log-button"></div>
+            </form>
+        </div>
+        {{#usernameError}}
+        <div class="alert" id="alert">
+            {{usernameError}}
+        </div>
+        {{/usernameError}}
+    </div>
+</div>
+<script src="js/regestration.js"></script>
+</body>
+</html>

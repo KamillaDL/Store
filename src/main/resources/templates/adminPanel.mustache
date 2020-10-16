@@ -1,0 +1,34 @@
+{{#layout}}
+<p><a href="/addProduct" class="cart-btn">Добавить товар</a></p>
+<p><a href="/addCategory" class="cart-btn">Добавить категорию</a></p>
+<h1>Заказы</h1>
+<table border="1" width="100%" cellpadding="5">
+    <tr>
+        <th>Адрес</th>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Телефон</th>
+        <th>Email</th>
+        <th>Почтовый индекс</th>
+        <th>Количество</th>
+        <th>Наименование продукта</th>
+        <th>Цена за единицу</th>
+        <th>Общая цена</th>
+    </tr>
+    {{#orders}}
+    <tr>
+        <td>{{details.address}}</td>
+        <td>{{details.name}}</td>
+        <td>{{details.surname}}</td>
+        <td>{{details.phone}}</td>
+        <td>{{details.email}}</td>
+        <td>{{details.index}}</td>
+        <td>{{value}}</td>
+        <td>{{product.name_of_item}}</td>
+        <td>{{product.price}}</td>
+        <td>{{result}}</td>
+    </tr>
+    {{/orders}}
+</table>
+{{/layout}}
+{{>layout}}

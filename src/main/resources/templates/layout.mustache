@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Zap</title>
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<link rel="stylesheet" href="styles/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+	<div class="underHeader">
+		<div class="divlogo">
+			<img src="pictures/logo.png" class="logoImg">
+		</div>
+		<ul class="addr">
+			<li class="addrItem"><i class="fa fa-phone"></i> &nbsp; 87781356799</li>
+			<li class="addrItem"><i class="fa fa-location-arrow"></i> &nbsp; г.Сарань, ул.Чкалова 74</li>
+		</ul>
+		<div class="navCenter">
+			<form action="/search" method="post" id="form">
+				<div class="searchLeft">
+					<input type="text" name="name_of_item" class="searchInput"/>
+					<input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+				</div>
+				<div class="searchRight">
+					<input type="submit" value="Поиск">
+				</div>
+			</form>
+		</div>
+	</div>
+	<header>
+		<div class="navLeft">
+			<ul>
+				<li><a href="/">Главная</a></li>
+				<li><a href="/categories">Магазин</a></li>
+				<li><a href="/aboutUs">О компании</a></li>
+				{{#isAdmin}}
+				<li><a href="/adminPanel">Администрирование</a></li>
+				{{/isAdmin}}
+			</ul>
+		</div>
+
+		<div class="navRight">
+			<div class="basket">
+				<a href="/basket" class="pocketImg">
+					<img src="pictures/pocket.png">
+				</a>
+			</div>
+			<div class="auth">
+				{{#user}}
+				<div>
+					<form action="/logout" method="post">
+						<input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+						<a href="#" onclick="this.parentNode.submit()">Выйти</a>
+					</form>
+				</div>
+				{{/user}}
+				{{^user}}
+				<a href="/login">Войти</a>
+				{{/user}}
+			</div>
+		</div>
+	</header>
+
+	<div class="container">
+		{{{layout.body}}}
+	</div>
+
+	<footer>
+		<div class="footer-content">
+			<div class="footer-section about">
+				<h1 class="logo-text"><span>Auto</span>Parts</h1>
+				<p>
+					Высокое качество, приемлемые цены, быстрая доставка.
+				</p>
+				<div class="contact">
+					<span><i class="fa fa-phone"></i> &nbsp; 87781356799</span>
+					<span><i class="fa fa-envelope"></i> &nbsp; valerja2001@gmail.com</span>
+				</div>
+			</div>
+			<div class="footer-section contacts">
+				<p>Подписывайтесь на нас в социальных сетях</p>
+				<ul>
+					<a href="#" target="blank"><li><i class="fa fa-facebook"></i></li></a>
+					<a href="#" target="blank"><li><i class="fa fa-twitter"></i></li></a>
+					<a href="https://vk.com/hard_flight" target="blank"><li><i class="fa fa-vk"></i></li></a>
+					<a href="#" target="blank"><li><i class="fa fa-google-plus"></i></li></a>
+				</ul>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			Designed by Valery
+		</div>
+	</footer>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+	<script src='js/stepper.min.js'></script>
+	<script src='js/resultBasket.js'></script>
+	<script src='js/addToBasket.js'></script>
+	<script src='js/order.js'></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+</html>

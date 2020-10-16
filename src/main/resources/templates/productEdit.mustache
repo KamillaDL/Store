@@ -1,0 +1,26 @@
+{{#layout}}
+    {{#product}}
+        <h2>Редактирование товара</h2>
+        <form action="/productEdit" method="post" id="form" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="{{id}}"  class="input"/>
+            <input type="hidden" name="category_id" value="{{category.id}}"  class="input"/>
+            <p>Название товара:
+            <input type="text" name="name" value="{{name_of_item}}" class="input" />
+            </p>
+            <p>Фото товара:
+                <input type="file" name="image2">
+            </p>
+            <p>Цена товара:
+            <input type="text" name="price" value="{{price}}" class="input" />
+            </p>
+            <p>Описание товара:
+            </p>
+                <textarea name="description" id="" cols="50" rows="10" class="input-desc">
+                    {{description}}
+                </textarea>
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+            <div><input type="submit" value="Изменить" class="button"></div>
+        </form>
+    {{/product}}
+{{/layout}}
+{{>layout}}

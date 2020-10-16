@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        figure {
+            width: 70px;
+            height: 70px;
+            margin: 0 0 0 3.5%;
+            background: #f0f0f0;
+            border-radius: 5px;
+            padding: 2%;
+        }
+        figure:first-child {
+            margin-left: 0;
+        }
+    </style>
+</head>
+<body>
+    <a href="/login">Войти </a>
+    <div>
+        <form action="/logout" method="post">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </div>
+    <div> Категории </div>
+    {{#categories}}
+    <div>
+        <b>{{name_of_pic}}</b>
+        <figure>
+            <p><img src="{{image}}" alt="{{name_of_pic}}" width="65" height="65"></p>
+        </figure>
+    </div>
+    {{/categories}}
+</body>
+</html>

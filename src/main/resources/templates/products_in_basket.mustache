@@ -1,0 +1,49 @@
+{{#layout}}
+{{#products_in_basket}}
+    <div class="product-b">
+        <div class="left-column-b"><img src="{{product.image}}" alt=""/> </div>
+        <div class="right-column-b">
+            <div class="name_item-b">{{product.name_of_item}}</div>
+            <div class="product-price-b"><span>{{product.price}} тг</span></div>
+            <div class="stepper stepper--style-2-b js-spinner">
+                <form action="/buy" method="post" id="forma" class="basketSteper">
+                    <input autofocus type="number" min="1" max="100" step="1" value="{{value}}" class="stepper__input-b" name="number" id="number">
+                    <input type="hidden" value="{{id}}" name="id_basket" id="id_basket">
+                    <input type="hidden" value="{{product.price}}" name="price" id="price">
+                    <input type="hidden" name="product_id" value="{{product.id}}" id="product_id" />
+                    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+                    <div class="stepper__controls">
+                        <input type="button" value="+" spinner-button="up" onclick="changeCount(true, '{{id}}')">
+                        <input type="button" value="-" spinner-button="down" onclick="changeCount(false, '{{id}}')">
+                    </div>
+                    <input type="submit" value="Купить" class="cart-btn">
+                </form>
+            </div>
+        </div>
+        <div class="third-column-b">
+            <form action="/remove" method="post">
+                <input type="hidden" name="id" value="{{id}}" />
+                <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+                <div><input type="submit" value="Удалить" class="button"></div>
+            </form>
+            <div class="result">
+                <p>Цена: <span id="{{id}}"></span> тг</p>
+            </div>
+        </div>
+    </div>
+{{/products_in_basket}}
+{{^products_in_basket}}
+<h1 style="text-align: center; color: #343a40">Вы еще ничего не добавили в корзину!</h1>
+{{/products_in_basket}}
+{{#have}}
+<div class="result-all">
+    <p>Итого: <span id="result"></span> тг</p>
+</div>
+<form action="/buy" method="post" id="form">
+    <input type="submit" value="Купить все" class="cart-btn">
+    <input type="hidden" name="product_id" value="0" id="product_id" />
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+</form>
+{{/have}}
+{{/layout}}
+{{>layout}}

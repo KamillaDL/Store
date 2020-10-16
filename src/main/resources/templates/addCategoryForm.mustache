@@ -1,0 +1,14 @@
+{{#layout}}
+<div class="addForm">
+    <h2>Добавление новой категории</h2>
+    <form action="/addCategory" method="post" id="form" enctype="multipart/form-data">
+        <p><input type="text" placeholder="Название категории" name="name_of_pic" id="name_of_pic" class="input"></p>
+        <p>Фото категории:
+            <input type="file" name="image2">
+        </p>
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <div><input type="submit" value="Добавить категорию" class="log-button"></div>
+    </form>
+</div>
+{{/layout}}
+{{>layout}}

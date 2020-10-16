@@ -1,0 +1,17 @@
+{{#layout}}
+{{#category}}
+    <h2>Редактирование категории</h2>
+    <form action="/categoryEdit" method="post" id="form" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="{{id}}"  class="input"/>
+        <p>Название категории:
+            <input type="text" name="name_of_pic" value="{{name_of_pic}}" class="input" />
+        </p>
+        <p>Фото категории:
+            <input type="file" name="image2">
+        </p>
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <div><input type="submit" value="Изменить" class="button"></div>
+    </form>
+{{/category}}
+{{/layout}}
+{{>layout}}

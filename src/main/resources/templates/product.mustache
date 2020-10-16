@@ -1,0 +1,28 @@
+{{#layout}}
+{{#product}}
+    <div class="name_item">{{name_of_item}}</div>
+    <div class="product">
+        <div class="left-column"><img src="{{image}}" alt=""/> </div>
+        <div class="right-column">
+            <div class="product-price"><span>{{price}} тг</span></div>
+            <div class="stepper stepper--style-2 js-spinner">
+                <form action="/add_to_basket_product" method="post" id="forma" onsubmit="return adding(this)">
+                    <input autofocus type="number" min="1" max="100" step="1" value="1" class="stepper__input" name="number">
+                    <input type="hidden" name="product_id" value="{{id}}" />
+                    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+                    <div class="stepper__controls">
+                        <button type="button" spinner-button="up">+</button>
+                        <button type="button" spinner-button="down">−</button>
+                    </div>
+                    <div><input type="submit" value="Добавить в корзину" class="cart-btn"></div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <div class="product-description">
+        <p>{{description}}</p>
+    </div>
+{{/product}}
+{{/layout}}
+{{>layout}}

@@ -1,0 +1,17 @@
+{{#layout}}
+<h2>Покупка</h2>
+<form action="/buyItem" method="post" id="form">
+    <p>Имя:
+        <input type="text" name="name" id="name" class="input">
+    </p>
+    <p>Фамилия:
+        <input type="text" name="surname" id="surname" class="input">
+    </p>
+    <p>Адрес:
+        <input type="text" name="address" id="address" class="input">
+    </p>
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+    <div><input type="submit" value="Купить" class="log-button"></div>
+</form>
+{{/layout}}
+{{>layout}}

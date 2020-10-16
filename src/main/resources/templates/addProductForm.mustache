@@ -1,0 +1,21 @@
+{{#layout}}
+<div class="addForm">
+    <h2>Добавление нового товара</h2>
+    <form action="/addProduct" method="post" id="form" enctype="multipart/form-data">
+        <p><input type="text" placeholder="Название товара" name="name_of_item" id="name_of_item" class="input"></p>
+        <select name="name_of_category" id="name_of_category" class="input select">
+            {{#cat}}
+            <option value="{{name_of_pic}}">{{name_of_pic}}</option>
+            {{/cat}}
+        </select>
+        <p><input type="text" placeholder="Цена товара" name="price" id="price" class="input"></p>
+        <textarea name="description" id="" cols="50" rows="10" class="input-desc" placeholder="Описание товара"></textarea>
+        <p>Фото товара:
+            <input type="file" name="image2">
+        </p>
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <div><input type="submit" value="Добавить товар" class="log-button"></div>
+    </form>
+</div>
+{{/layout}}
+{{>layout}}

@@ -1,0 +1,17 @@
+{{#layout}}
+	{{#categories}}
+    <a href="/category?id={{id}}">
+		<div class="categories">
+			<div class="catItem">
+				<img src="{{image}}" alt="{{name_of_pic}}" class="imgItem">
+			</div>
+			<p class="desc">{{name_of_pic}}</p>
+			{{#isAdmin}}
+			<a href="/categoryEdit?id={{id}}">Edit</a>
+			<a href="/categoryDelete?id={{id}}">Delete</a>
+			{{/isAdmin}}
+		</div>
+	</a>
+	{{/categories}}
+{{/layout}}
+{{>layout}}

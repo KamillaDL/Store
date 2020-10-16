@@ -1,0 +1,31 @@
+{{#layout}}
+    {{#products}}
+    <a href="/product?id={{id}}">
+    <div class="product-item">
+        <img src="{{image}}" alt="{{name_of_item}}" class="imgItem">
+        <div class="product-list">
+            <h3>{{name_of_item}}</h3>
+            <span class="price">{{price}} тг</span>
+            {{#isSearch}}
+            {{category.name_of_pic}}
+            {{/isSearch}}
+        </div>
+        <form action="/add_to_basket" method="post" id="form" onsubmit="return adding(this)">
+            <input type="hidden" name="product_id" value="{{id}}" />
+            <input type="hidden" name="number" value="1" />
+            <input type="hidden" name="category_id" value="{{category.id}}" />
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+            <div><input type="submit" value="В корзину" class="button"></div>
+        </form>
+        {{#isAdmin}}
+        <a href="/productEdit?id={{id}}">Edit</a>
+        <a href="/productDelete?id={{id}}">Delete</a>
+        {{/isAdmin}}
+    </div>
+    </a>
+    {{/products}}
+    {{#user}}
+    <input type="hidden" name="principal" value="{{user}}" />
+    {{/user}}
+{{/layout}}
+{{>layout}}

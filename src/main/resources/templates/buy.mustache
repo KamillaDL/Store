@@ -1,0 +1,29 @@
+{{#layout}}
+    <h2>Покупка</h2>
+    <form action="/buyItem" method="post" id="form" onsubmit="return buying(this)">
+        <p>Имя:
+        <input type="text" name="name" id="name" class="input">
+        </p>
+        <p>Фамилия:
+        <input type="text" name="surname" id="surname" class="input">
+        </p>
+        <p>Адрес:
+        <input type="text" name="address" id="address" class="input">
+        </p>
+        <p>Почтовый индекс:
+        <input type="text" name="index" id="index" class="input">
+        </p>
+        <p>Телефон:
+            <input type="text" name="phone" id="phone" class="input">
+        </p>
+        <p>EMail:
+            <input type="text" name="email" id="email" class="input">
+        </p>
+        {{#product_id}}
+        <input type="hidden" name="product_id" value="{{product_id}}" id="product_id">
+        {{/product_id}}
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <div><input type="submit" value="Купить" class="log-button"></div>
+    </form>
+{{/layout}}
+{{>layout}}
